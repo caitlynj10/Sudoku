@@ -2,6 +2,7 @@ import java.util.*;
 
 class SudokuGame{
     
+    public static SudokuGame game = new SudokuGame();
     
     
     public int[][] createBoard(){
@@ -62,7 +63,6 @@ class SudokuGame{
         }
         return true;
     }
-
     
     public boolean checkSquare(int num, int[][] board, int row, int col){
         int startRow = row - (row % 3);
@@ -75,23 +75,76 @@ class SudokuGame{
             }
                 
         }
-        
 
         return true;
     }
     
-    
-    public boolean fillBoard(){
+    public int[][] puzzleBoard(int [][] board){
+        
+        for(int i = 0; i < board.length; i+=6){
+            for(int j = 0; j < board[i].length; j+=6){
+                board[i][j] = 0;
+            }
+        }
+        return board;
+
+
+    }
+
+    public void copyBoard(int [][] a, int [][] b){
+        for (int r = 0; r < 9; r++) {
+            for (int c = 0; c < 9; c++) {
+                a[r][c] = b[r][c];
+            }
+        }
+    }
+
+    public boolean completedBoard(int[][] empty, int[][]  complete){
+        for(int i = 0; i < empty.length; i++){
+            for(int j = 0; j < empty[i].length; j++){
+                if(empty[i][j] != complete[i][j]){
+                    return false;
+                }
+            }
+        }
         return true;
+    }
+
+    public void playGame(){
+        int[][] board = game.createBoard();
+        int [][] filledBoard = new int[9][9];
+        copyBoard(filledBoard, board);
+        int [][] puzzleBoard = puzzleBoard(board); 
+        System.out.println("Complete Board");
+        game.printBoard(filledBoard);
+        System.out.println("Puzzle Board");
+        game.printBoard(puzzleBoard);
+        Scanner scan = new Scanner(System.in);
+        while(!completedBoard(puzzleBoard, filledBoard)){
+            System.out.print("Enter row: ");
+            int row = scan.nextInt();
+            System.out.print("Enter column: ");
+            int col = scan.nextInt();
+            System.out.print("Enter number: ");
+            int num = scan.nextInt();
+            if(filledBoard[row][col] == num){
+                System.out.println("Correct");
+                puzzleBoard[row][col] = num;
+                game.printBoard(puzzleBoard);
+            }
+            else{
+                System.out.println("Incorrect");
+            }
+        }
+        System.out.print("Game Complete");
+        scan.close();
+        
     }
 
     public static void main(String[] args) {
         System.out.println("Playing Sudoku");
-        SudokuGame game = new SudokuGame();
-        int[][] board = game.createBoard();
-        game.printBoard(board);
-
-
+        game.playGame();
+        
     }
 
 }
