@@ -75,6 +75,49 @@ class SudokuGame{
 
         return true;
     }
+
+    public void  easyBoard(int[][] board){
+        Random rand = new Random();
+        for(int i = 0; i < board.length; i++){
+            int removeNums = rand.nextInt(2) + 3;
+            removeFromRow(board, i, removeNums);
+        }
+    
+    }
+
+    public void mediumBoard(int[][] board){
+        Random rand = new Random();
+        for(int i = 0; i < board.length; i++){
+            int removeNums = rand.nextInt(3) + 4;
+            removeFromRow(board, i, removeNums);
+        }
+    
+
+    }
+
+    public void hardBoard(int[][] board){
+        Random rand = new Random();
+        for(int i = 0; i < board.length; i++){
+            int removeNums = rand.nextInt(2) + 6;
+            removeFromRow(board, i, removeNums);
+        }
+    
+
+    }
+
+    public void removeFromRow(int[][] board, int row, int countVals){
+        Random rand = new Random();
+        int removedVals = 0;
+        while(removedVals < countVals){
+            int col = rand.nextInt(9);
+            if(board[row][col] != 0){
+                board[row][col] = 0;
+                removedVals++;
+            }
+        }
+
+    }
+        
     
     public int[][] puzzleBoard(int [][] board){
         
@@ -107,6 +150,7 @@ class SudokuGame{
         return true;
     }
 
+    
     public void playGame(){
         int[][] board = createBoard();
         int [][] filledBoard = new int[9][9];
