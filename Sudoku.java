@@ -1,10 +1,7 @@
 import java.util.*;
 
 class SudokuGame{
-    
-    public static SudokuGame game = new SudokuGame();
-    
-    
+
     public int[][] createBoard(){
         int[][] board = new int[9][9];
         checkValidBoard(board);
@@ -111,14 +108,14 @@ class SudokuGame{
     }
 
     public void playGame(){
-        int[][] board = game.createBoard();
+        int[][] board = createBoard();
         int [][] filledBoard = new int[9][9];
         copyBoard(filledBoard, board);
         int [][] puzzleBoard = puzzleBoard(board); 
         System.out.println("Complete Board");
-        game.printBoard(filledBoard);
+        printBoard(filledBoard);
         System.out.println("Puzzle Board");
-        game.printBoard(puzzleBoard);
+        printBoard(puzzleBoard);
         Scanner scan = new Scanner(System.in);
         while(!completedBoard(puzzleBoard, filledBoard)){
             System.out.print("Enter row: ");
@@ -130,7 +127,7 @@ class SudokuGame{
             if(filledBoard[row][col] == num){
                 System.out.println("Correct");
                 puzzleBoard[row][col] = num;
-                game.printBoard(puzzleBoard);
+                printBoard(puzzleBoard);
             }
             else{
                 System.out.println("Incorrect");
@@ -143,6 +140,7 @@ class SudokuGame{
 
     public static void main(String[] args) {
         System.out.println("Playing Sudoku");
+        SudokuGame game = new SudokuGame();
         game.playGame();
         
     }
