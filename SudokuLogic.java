@@ -88,7 +88,7 @@ class SudokuGame{
     public void mediumBoard(int[][] board){
         Random rand = new Random();
         for(int i = 0; i < board.length; i++){
-            int removeNums = rand.nextInt(3) + 4;
+            int removeNums = rand.nextInt(2) + 4;
             removeFromRow(board, i, removeNums);
         }
     
@@ -98,7 +98,7 @@ class SudokuGame{
     public void hardBoard(int[][] board){
         Random rand = new Random();
         for(int i = 0; i < board.length; i++){
-            int removeNums = rand.nextInt(2) + 6;
+            int removeNums = rand.nextInt(2) + 5;
             removeFromRow(board, i, removeNums);
         }
     
