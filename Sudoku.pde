@@ -10,6 +10,7 @@ int selectedNumber = 0;
 boolean gameStarted = false;
 boolean gameWon = false;
 String difficulty = "";
+int errors = 0;
 
 
 
@@ -106,8 +107,13 @@ void gameEnded(){
 
   fill(0);
   textAlign(CENTER, CENTER);
+  textSize(15);
+  text("Total Errors: " + errors, width/2, 320);
+  
+  fill(0);
+  textAlign(CENTER, CENTER);
   textSize(20);
-  text("Press Enter to Play Again", width/2, 320);
+  text("Press Enter to Play Again", width/2, 340);
 }
 
 void setGameDifficulty(int [][] board){
@@ -322,6 +328,9 @@ void mousePressed() {
             gameWon = true;
           }
         }
+        else{
+          errors++;
+        }
       }
       
     }
@@ -335,6 +344,7 @@ void keyPressed(){
     gameStarted = false;
     selectedRow = -1;
     selectedCol = -1;
+    errors = 0;
     fullBoard = engine.createBoard();
     engine.copyBoard(displayBoard, fullBoard);
     difficulty = "easy";
@@ -352,6 +362,9 @@ void keyPressed(){
         if(engine.completedBoard(displayBoard,fullBoard)){
             gameWon = true;
         }
+      }
+      else {
+        errors++;
       }
     }
   }
