@@ -6,9 +6,9 @@ int cellSize = 60;
 
 int selectedRow = -1;
 int selectedCol = -1;
-int selectedNumber = 1;
+int selectedNumber = 0;
 boolean gameStarted = false;
-boolean gameWon = true;
+boolean gameWon = false;
 String difficulty = "";
 
 
@@ -46,6 +46,8 @@ void draw() {
 void startGame(){
 
   background(255, 199, 189);
+  stroke(0);
+  strokeWeight(1);
 
   textAlign(CENTER, TOP);
   textSize(40);
@@ -180,6 +182,88 @@ void displayNumbers(){
     stroke(0);
     strokeWeight(1);
     rect((i - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+
+    if(engine.allNums(engine.countOnes(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((1 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(1, (1 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+
+    if(engine.allNums(engine.countTwos(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((2 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(2, (2 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+
+    if(engine.allNums(engine.countThrees(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((3 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(3, (3 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+
+    if(engine.allNums(engine.countFours(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((4 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(4, (4 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+
+    if(engine.allNums(engine.countFives(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((5 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(5, (5 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+
+    if(engine.allNums(engine.countSixes(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((6 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(6, (6 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+
+    if(engine.allNums(engine.countSevens(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((7 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(7, (7 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+
+    if(engine.allNums(engine.countEights(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((8 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(8, (8 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+
+    if(engine.allNums(engine.countNines(displayBoard))){
+      fill(200,200,255);
+      stroke(0);
+      strokeWeight(3);
+      rect((9 - 1) * itemWidth + 5, displayY - 25, itemWidth - 10, 50);
+      fill(0);
+      text(9, (9 - 1) * itemWidth + itemWidth / 2, displayY);
+    }
+    
   }
   
 }
@@ -206,7 +290,18 @@ void mousePressed() {
         else {
           selectedRow = r;
           selectedCol = c;
+          selectedNumber = 0;
         }
+      }
+
+      else if (displayBoard[r][c] != 0) {
+        if (selectedNumber == displayBoard[r][c]) {
+          selectedNumber = 0;
+        } else {
+          selectedNumber = displayBoard[r][c];
+        }
+        selectedRow = -1;
+        selectedCol = -1;
       }
       
      }
@@ -219,6 +314,7 @@ void mousePressed() {
       if(selectedRow != -1 && selectedCol != -1){
         if (fullBoard[selectedRow][selectedCol] == clicked) {
           displayBoard[selectedRow][selectedCol] = clicked;
+          selectedNumber = clicked;
           selectedRow = -1;
           selectedCol = -1;
             
@@ -252,6 +348,10 @@ void keyPressed(){
         displayBoard[selectedRow][selectedCol] = selectedNumber;
         selectedRow = -1;
         selectedCol = -1;
+
+        if(engine.completedBoard(displayBoard,fullBoard)){
+            gameWon = true;
+        }
       }
     }
   }
@@ -262,5 +362,16 @@ void highlightSelected() {
     fill(214);
     noStroke();
     rect(selectedCol* cellSize, selectedRow * cellSize, cellSize, cellSize);
+  }
+  else if (selectedNumber > 0) {
+    fill(214);
+    noStroke();
+    for (int r = 0; r < 9; r++) {
+      for (int c = 0; c < 9; c++) {
+        if (displayBoard[r][c] == selectedNumber) {
+          rect(c * cellSize, r * cellSize, cellSize, cellSize);
+        }
+      }
+    }
   }
 }

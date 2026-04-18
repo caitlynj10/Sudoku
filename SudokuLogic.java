@@ -150,6 +150,121 @@ class SudokuGame{
         return true;
     }
 
+    public int countOnes(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 1){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int countTwos(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 2){
+                    count++;
+
+                }
+            }
+        }
+        return count;
+    }
+
+    public int countThrees(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 3){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int countFours(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 4){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int countFives(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 5){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int countSixes(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 6){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int countSevens(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 7){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int countEights(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 8){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int countNines(int [][] board){
+        int count = 0;
+        for(int i = 0; i < board.length; i++){
+            for(int j = 0; j < board[i].length; j++){
+                if(board[i][j] == 9){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public boolean allNums(int nums){
+        if(nums != 9){
+            return false;
+        }
+        return true;
+    }
     
     public void playGame(){
         int[][] board = createBoard();
