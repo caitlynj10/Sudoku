@@ -14,7 +14,7 @@ String difficulty = "";
 
 
 void setup() {
-  size(540, 640); // 9 cells * 60px
+  size(540, 640, P2D); // 9 cells * 60px
   engine = new SudokuGame();
   
   fullBoard = engine.createBoard();
