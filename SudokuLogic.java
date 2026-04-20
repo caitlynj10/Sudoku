@@ -150,11 +150,11 @@ class SudokuGame{
         return true;
     }
 
-    public int countOnes(int [][] board){
+    public int countOnes(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 1){
+                if(board[i][j] == 1 && board[i][j] == solution[i][j]){
                     count++;
                 }
             }
@@ -162,11 +162,11 @@ class SudokuGame{
         return count;
     }
 
-    public int countTwos(int [][] board){
+    public int countTwos(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 2){
+                if(board[i][j] == 2 && board[i][j] == solution[i][j]){
                     count++;
 
                 }
@@ -175,11 +175,11 @@ class SudokuGame{
         return count;
     }
 
-    public int countThrees(int [][] board){
+    public int countThrees(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 3){
+                if(board[i][j] == 3 && board[i][j] == solution[i][j]){
                     count++;
                 }
             }
@@ -187,11 +187,11 @@ class SudokuGame{
         return count;
     }
 
-    public int countFours(int [][] board){
+    public int countFours(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 4){
+                if(board[i][j] == 4 && board[i][j] == solution[i][j]){
                     count++;
                 }
             }
@@ -199,11 +199,11 @@ class SudokuGame{
         return count;
     }
 
-    public int countFives(int [][] board){
+    public int countFives(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 5){
+                if(board[i][j] == 5 && board[i][j] == solution[i][j]){
                     count++;
                 }
             }
@@ -211,11 +211,11 @@ class SudokuGame{
         return count;
     }
 
-    public int countSixes(int [][] board){
+    public int countSixes(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 6){
+                if(board[i][j] == 6 && board[i][j] == solution[i][j]){
                     count++;
                 }
             }
@@ -223,11 +223,11 @@ class SudokuGame{
         return count;
     }
 
-    public int countSevens(int [][] board){
+    public int countSevens(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 7){
+                if(board[i][j] == 7 && board[i][j] == solution[i][j]){
                     count++;
                 }
             }
@@ -235,11 +235,11 @@ class SudokuGame{
         return count;
     }
 
-    public int countEights(int [][] board){
+    public int countEights(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 8){
+                if(board[i][j] == 8 && board[i][j] == solution[i][j]){
                     count++;
                 }
             }
@@ -247,11 +247,11 @@ class SudokuGame{
         return count;
     }
 
-    public int countNines(int [][] board){
+    public int countNines(int [][] board, int [][] solution){
         int count = 0;
         for(int i = 0; i < board.length; i++){
             for(int j = 0; j < board[i].length; j++){
-                if(board[i][j] == 9){
+                if(board[i][j] == 9 && board[i][j] == solution[i][j]){
                     count++;
                 }
             }
