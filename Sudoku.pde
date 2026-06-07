@@ -252,7 +252,7 @@ void displayNumbers(){
     if(mousePressed && isHovering){
       fill(255, 227, 200);
       noStroke();
-      rect((i - 1) * itemWidth + 5, displayY, itemWidth - 10, 50);
+      rect((i - 1) * itemWidth + 5, displayY, itemWidth - 10, 50,12);
     }
     
     fill(0); 
