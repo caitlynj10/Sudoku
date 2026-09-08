@@ -1,2 +1,2 @@
 # Sudoku
-I love playing Sudoku, and I wanted to use my degree and specialities to recreate a game I love so much!
+Since I was a kid, Sudoku has been my favorite phone and computer game to play. I thought creating this game in languages I am familiar with (Processing and Java) will not only show off my technical skills but also my logic and design skills. For such a simple game, it was slightly challenging connecting the Java logic to the Processing logic, but in the end, I was able to create my uniquely designed take on a classic game. 
